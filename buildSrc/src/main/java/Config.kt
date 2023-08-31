@@ -10,5 +10,5 @@ object Config {
     const val defaultProguardFile = "proguard-android-optimize.txt"
 
 
-    const val jvmTarget = "1.8"
+    const val jvmTarget = "17"
 }

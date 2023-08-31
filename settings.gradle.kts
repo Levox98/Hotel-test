@@ -29,4 +29,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Hotel test"
 include(":app")
- 
+include(":api")

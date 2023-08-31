@@ -1,21 +1,18 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     kotlin("android")
     kotlin("kapt")
 }
 
 android {
-    namespace = Config.namespace
+    namespace = Config.namespace + ".api"
     compileSdk = Config.compileSdk
 
     defaultConfig {
-        applicationId = Config.namespace
         minSdk = Config.minSdk
-        targetSdk = Config.compileSdk
-        versionCode = Config.versionCode
-        versionName = Config.versionName
 
         testInstrumentationRunner = Config.testInstrumentationRunner
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -37,13 +34,13 @@ android {
 }
 
 dependencies {
-    implementation(project(":api"))
 
     implementation(Dependencies.Kotlin.coreKtx)
     implementation(Dependencies.Kotlin.appCompat)
-    implementation(Dependencies.Interface.material)
-    implementation(Dependencies.Interface.constraintLayout)
 
     kapt(Dependencies.Dagger.kapt)
     implementation(Dependencies.Dagger.dagger)
+
+    implementation(Dependencies.Retrofit.retrofit)
+    implementation(Dependencies.Retrofit.gsonConverter)
 }
